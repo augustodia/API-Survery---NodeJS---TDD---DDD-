@@ -1,0 +1,10 @@
+{
+  "extends": "airbnb",
+  "parseOptions": {
+    "projetct": "./tsconfig.json"
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"]
+  }
+}
