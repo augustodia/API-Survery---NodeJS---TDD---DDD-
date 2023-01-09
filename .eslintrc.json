@@ -5,6 +5,12 @@
   },
   "rules": {
     "semi": ["error", "always"],
-    "quotes": ["error", "single"]
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "semi": true
+      }
+    ]
   }
 }
