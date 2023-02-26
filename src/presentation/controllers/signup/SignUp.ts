@@ -6,9 +6,8 @@ import {
   IAddAccount,
 } from './signup-protocols';
 import { MissingParamError } from '../../errors/missing-param-error';
-import { badRequest } from '../../helpers/http-helper';
 import { InvalidParamError } from '../../errors/invalid-param-error';
-import { ServerError } from '../../errors/server-error';
+import { badRequest, serverError, ok } from '../../helpers/http-helper';
 
 export class SignUpController implements Controller {
   private readonly emailValidator: IEmailValidator;
@@ -51,15 +50,9 @@ export class SignUpController implements Controller {
         password,
       });
 
-      return {
-        statusCode: 200,
-        body: account
-      }
+      return ok(account);
     } catch (error) {
-      return {
-        statusCode: 500,
-        body: new ServerError(),
-      };
+      return serverError(error);
     }
   }
 }
